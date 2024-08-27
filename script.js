@@ -395,7 +395,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     return;
                 }
                 if (currentMessageIndex === 35) {
-                    revealWord('word3', 'MARYY')
+                    revealWord('word3', 'MARRY')
                     setTimeout(() => {
                         secretPhrase.style.color = '#FFB6C1'; // Light Pink
                         secretPhrase.style.borderColor = '#FF1493'; // Deep Pink
