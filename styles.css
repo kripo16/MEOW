@@ -1,0 +1,482 @@
+/* Pixel Art Theme */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c1c;
+    font-family: 'Press Start 2P', cursive;
+    color: #ffffff;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.dialogue-container {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    max-width: 600px;
+    margin-bottom: 50px; /* Space between dialogue containers */
+}
+
+/* Container for character info */
+#character-info1, #character-info2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Character name styles */
+#character-name1, #character-name2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFF00;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1c1c1c;
+    padding: 2px;
+    z-index: 10;
+}
+
+/* Image styles */
+#character-img1, #character-img2 {
+    width: 150px;
+    height: 150px; 
+    min-width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff;
+}
+
+/* Speech bubble styles */
+.speech-bubble {
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    position: relative;
+    font-size: 14px;
+    color: #000;
+    line-height: 2;
+    max-width: calc(100% - 180px);
+    display: none;
+}
+
+/* Arrow styles for dialogue bubble */
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    transform: translateY(-50%);
+}
+
+.speech-bubble.left::after {
+    left: -20px;
+    border-right-color: #fff;
+}
+
+.speech-bubble.right::after {
+    right: -10px;
+    border-left-color: #f0f0f0;
+    border-right: none;
+}
+
+/* Ensure message text visibility */
+#message1, #message2 {
+    opacity: 1;
+    color: #000;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Password Section */
+#password-section {
+    display: none; /* Initially hidden */
+    position: absolute; /* Position it relative to the nearest positioned ancestor */
+    left: 55%;
+    bottom: 30%;
+    transform: translateX(-50%);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Center align the content within the section */
+}
+
+.fade-in {
+    animation: fadeIn 2s forwards; /* Apply fadeIn animation for 2 seconds */
+}
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.pixel-instruction {
+    font-family: 'Press Start 2P', cursive; /* Use the pixel art font */
+    font-size: 16px; /* Adjust size as needed */
+    color: #FF7F50; /* Gold color for contrast */
+    background-color: #1c1c1c;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow for better visibility */
+    position: absolute; /* Position it fixed on the screen */
+    bottom: 20px; /* Distance from the bottom of the screen */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center alignment */
+    z-index: 10; /* Ensure it appears above other elements */
+    animation: blink 2s infinite; /* Add the blinking animation */
+}
+
+
+
+
+
+/* Image Container Styling */
+.image-section {
+    display: flex; /* Flex container to align items in a row */
+    gap: 30px; /* Space between images */
+    justify-content: center; /* Center images horizontally */
+    margin: 20px 0; /* Space above and below container */
+    flex-direction: row; /* Ensure images are laid out in a row */
+}
+
+#imageContainer h1 {
+    font-family: 'Press Start 2P', cursive; /* Pixel art font for consistency */
+    font-size: 2.5rem; /* Adjust font size as needed */
+    color: #FFFF00; /* Bright color for the text */
+    text-align: center; /* Center align the text */
+    margin: 0; /* Remove default margin */
+    padding: 20px 0; /* Add padding above and below */
+    text-shadow: 2px 2px 0px #000, 4px 4px 0px #333; /* Add shadow for better visibility */
+    border-bottom: 2px solid #FFFF00; /* Optional border for extra emphasis */
+    background-color: #1c1c1c; /* Background color to match theme */
+}
+
+
+/* Loader Container */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1c1c1c; /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it covers everything */
+}
+
+/* Loader Text */
+.loader-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Animated Dots */
+#dots::after {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    text-align: left;
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% {
+        content: '';
+    }
+    40% {
+        content: '.';
+    }
+    60% {
+        content: '..';
+    }
+    80%, 100% {
+        content: '...';
+    }
+}
+
+/* Image Button Styling */
+.image-button {
+    display: flex; /* Flexbox to center image */
+    align-items: center; /* Center image vertically */
+    justify-content: center; /* Center image horizontally */
+    width: 600px; /* Adjust width to fit content */
+    height: 700px; /* Adjust height to fit content */
+    overflow: hidden; /* Hide overflow to maintain button shape */
+    border: 2px solid; /* Remove default button border */
+    padding: 0; /* Remove default button padding */
+    background: none; /* Remove default button background */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 8px; /* Rounded corners for button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+#izem {
+    width: 50%;
+    height: 70%;
+}
+#rami {
+    width: 100%;
+    height: 100%;
+}
+
+.image-button:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Shadow effect on hover */
+}
+
+
+.quest-wrapper, .quest-wrapper1 {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+}
+
+#quest-section, #quest-section1 {
+    padding: 20px;
+    background-color: #1b1b1b;
+    border: 4px solid #2ecc71;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 100%;
+}
+
+
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Secret Phrase Styles */
+#secret-phrase {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Press Start 2P', cursive;
+    font-style: italic;
+    font-size: 30px; /* Adjust size as needed */
+    color: #808080; /* Gray color for the engraved look */
+    text-shadow: 1px 1px 0 #000, 2px 2px 0 #555, 3px 3px 0 #000; /* Create an engraved effect */
+    background: linear-gradient(#2e2e2e, #1c1c1c); /* Dark gradient for the background */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for an embedded effect */
+    border: 1px solid #444; /* Border to enhance the engraved effect */
+    gap: 10px;
+    white-space: nowrap;
+}
+
+@keyframes moveToCenter {
+  0% {
+    font-size: 30px; /* Adjust size as needed */
+    top: 10%;
+    
+  }
+  100% {
+    font-size: 50px; /* Adjust size as needed */
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes glowEffect {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0), inset 0 0 10px rgba(255, 255, 255, 0);
+      border-color: #444; /* Initial border color */
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.8);
+      border-color: #fff; /* Glowing border color */
+    }
+}
+
+/* Message Container */
+.message-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    margin: 20px; /* Space around the container */
+    max-width: 1000px; /* Width of the message container */
+}
+
+/* Character Image and Name */
+.character-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px; /* Space between image and message */
+}
+
+.character-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #FF1493; /* Border color for contrast */
+    object-fit: cover;
+}
+
+.character-info .character-name {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    color: #FF1493; /* Deep Pink */
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Message Box */
+.message-box {
+    background: #fff; /* White background for the message box */
+    border: 2px solid #FF1493; /* Deep Pink border */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Press Start 2P', cursive;
+    color: #000; /* Black text for readability */
+    max-width: 800px; /* Max width of the message box */
+    line-height: 1.5; /* Line height for readability */
+}
+
+/* Optional Styles for Letter-like Effect */
+.message-box::before {
+    content: ' ';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #FF1493; /* Deep Pink */
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: 20px; /* Adjust as needed */
+}
+
+/* Optional Styles for Scrollable Content */
+.scrollable-message-box {
+    max-height: 500px; /* Max height for scroll */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+@keyframes moveUp {
+    0% {
+        font-size: 50px; /* Adjust size as needed */
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0), inset 0 0 10px rgba(255, 255, 255, 0);
+        border-color: #444;
+        
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.8);
+       border-color: #fff;
+    }
+    100% {
+        font-size: 30px; /* Adjust size as needed */
+        top: 10%;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0), inset 0 0 10px rgba(255, 255, 255, 0);
+       border-color: #444;
+    }
+}
+
+
+
+#video-container {
+    position: relative;
+    width: 420px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #1c1c1c;
+    border: 3px solid #444;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+/* Word Animation */
+.word {
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+    display: inline-block;
+}
+
+
+
+.shake {
+    animation: shake 0.5s;
+}
+
+
+
+#quest-question {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px #2ecc71, 4px 4px 0px #1b1b1b;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.pixel-input {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    border: 2px solid #000;
+    padding: 5px;
+    background: #eee;
+    color: #333;
+    margin: 10px 0;
+}
+
+.pixel-button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    border: 2px solid #000;
+    padding: 5px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+.pixel-button:hover {
+    background: #555;
+}
