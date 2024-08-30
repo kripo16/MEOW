@@ -360,6 +360,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     videoShown = false;
                     return;
                 }
+                if (currentMessageIndex === 31) {
+                    song.pause();
+                    song1.play();
+                }
 
                 if (currentMessageIndex === 32) {
                     characterInfo1.style.display = "none";
@@ -369,8 +373,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     messageDisplay1.style.display = "none";
                     messageDisplay2.style.display = "none";
                     passwordSection.style.display = "none";
-                    song.pause();
-                    song1.play();
                     imageContainer.style.display = "block";
                     imageContainer.classList.add('fade-in');
                     instruction.textContent = "Choose The Right Answer !!"
@@ -389,6 +391,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     secretPhrase.style.animation = "moveToCenter 2s forwards, glowEffect 4s infinite ease-in-out 2s";
                     setTimeout(() => {
                         instruction.textContent = "Press Space !!"
+                        instruction.style.color = "#1E90FF";
+
                         instruction.style.display = "block";
                     }, 4000);
                     currentMessageIndex++;
@@ -400,6 +404,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         secretPhrase.style.color = '#FFB6C1'; // Light Pink
                         secretPhrase.style.borderColor = '#FF1493'; // Deep Pink
                     }, 500);
+
                     currentMessageIndex++;
                     return;
                 }
@@ -425,7 +430,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const enteredPassword = passwordInput.value;
         // Check if the password is correct (example password: 'correctpassword')
         if (enteredPassword === '18092023') {
-            revealWord('word1', 'WILL')
+            revealWord('word4', 'ME?')
+
 
             displayNextMessage();
             event.preventDefault();
@@ -545,7 +551,7 @@ document.addEventListener("DOMContentLoaded", function() {
             displayNextMessage();
         }, 7500);
         setTimeout(() => {
-            revealWord('word4', 'ME?')
+            revealWord('word1', 'WILL')
         }, 8000);
     })
 
@@ -592,7 +598,6 @@ window.addEventListener('load', function() {
         document.getElementById('loader').style.display = 'none';
     }, 3500); // Adjust the delay as needed (2000ms = 2 seconds)
 });
-
 
 
 
