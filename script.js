@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { text: "Never mind that jerk, So... !!", img: "src/images/tangledlink.jpg", position: 'left', name: 'Link' },
         { text: "Who you calling STUPID?!", img: "src/images/imad.jpg", position: 'right', name: '???' },
         { text: "Oh, it's you again", img: "src/images/link.jpg", position: 'left', name: 'Link' },
-        { text: "Did you forget that I can show them the pictures :)", img: "src/images/imad.jpg", position: 'right', name: 'Imad' },
+        { text: "Did you forget that I can show her the pictures :)", img: "src/images/imad.jpg", position: 'right', name: 'Imad' },
         { text: "No, don't you dare ...", img: "src/images/challengingLink.jpg", position: 'left', name: 'Link' },
         { text: "hehehe ...", img: "src/images/imad.jpg", position: 'right', name: 'Imad' },
         { text: "That laugh was creepy but anyway", img: "src/images/link.jpg", position: 'left', name: 'Link' },
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { text: "There you go, Now we start.", img: "src/images/zelda2.jpg", position: 'left', name: 'Link' },
         { text: "First Quest: Let's start with a simple one, answer the question below", img: "src/images/zelda3.jpg", position: 'left', name: 'Link' },
         { text: "OMG !! You made it through the first one, hear that sound? that means you revealed a word !!", img: "src/images/zelda3.jpg", position: 'left', name: 'Link' },
-        { text: "Second Quest: Go back to discord this one Imad has it, once you complete it. He will give you a password which will allow you to move to the next one.", img: "src/images/zelda2.jpg", position: 'left', name: 'Link' },
+        { text: "Second Quest: Go back to discord this one Imad has it, once you complete it. He will give you a password which will allow you to move to the next one. The hint for it is: 'We Should Be In Sync Like Two Halfs Of The Same HeartBeat'.", img: "src/images/zelda2.jpg", position: 'left', name: 'Link' },
         { text: "Great !! You got the password and the second word too. (psst he just tricked you to match with him)", img: "src/images/zelda3.jpg", position: 'left', name: 'Link' },
         { text: "... !!", img: "src/images/imad.jpg", position: 'right', name: 'Imad' },
         { text: "Shut up, you thought you were being funny with those pictures.", img: "src/images/zelda3.jpg", position: 'left', name: 'Link' },
@@ -271,6 +271,7 @@ document.addEventListener("DOMContentLoaded", function() {
             'YOU MIGHT DIE': 'color: #DC143C',
             'Yess !!': 'color: #FFD700;',
             'completed': 'color: #1E90FF;',
+            'We Should Be In Sync Like Two Halfs Of The Same HeartBeat': 'color: #1E90FF;',
 
 
         };
