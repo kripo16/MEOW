@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 setTimeout(() => {
                     passwordSection.style.display = "block"; // Make it visible
                     passwordSection.classList.add('fade-in');
-                }, 3000); // 2000 milliseconds = 2 seconds
+                }, 4000); // 2000 milliseconds = 2 seconds
             }
 
             // Show background images based on message index
